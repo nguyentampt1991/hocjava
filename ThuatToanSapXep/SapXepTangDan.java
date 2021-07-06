@@ -10,7 +10,7 @@ package trainning.ThuatToanSapXep;
  * @author Tam Nguyen
  */
 public class SapXepTangDan {
-     static double[] list = {1, 9, 4.5, 6.6, 5.7, -4.5};
+     static double[] list = {1, 9, 7, 5, 12, 14};
 
     public static void main(String[] args) {
         selectionSort(list);
