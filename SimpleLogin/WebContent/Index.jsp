@@ -19,7 +19,7 @@ margin: 5px;
 </style>
 </head>
 <body>
-<form method="POST" action="/login">
+<form method="POST" action="login">
 <div class="login">
 <h2>Login</h2>
 <input type="text" name="username" size="30" placeholder="username"/>

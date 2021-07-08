@@ -16,7 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 public class ConverterServlet extends HttpServlet {
 	
        
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -29,11 +34,11 @@ public class ConverterServlet extends HttpServlet {
 		float usd = Float.parseFloat(request.getParameter("usd"));
 		float vnd = rate*usd;
 		PrintWriter writer = response.getWriter();
-		writer.println("html");
+		writer.println("<html>");
 		writer.println("<h1>Rate : "+ rate + "<h1>");
 		writer.println("<h1>USD : "+ usd + "<h1>");
 		writer.println("<h1>VND : "+ vnd + "<h1>");
-		writer.println("/<html");
+		writer.println("</html>");
 		
 	}
 
