@@ -13,7 +13,7 @@
 </head>
 <body>
 <h2>Việt Nam Dictionary</h2>
-<form method="post" action="Dictionary.jsp">
+<form method="post" action="/Dictionary.jsp">
     <input type="text" name="txtSeach" placeholder="Enter your word :"/>
     <input type="submit" id="submit" value="Seach"/>
 
