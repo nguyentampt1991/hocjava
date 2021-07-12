@@ -1,0 +1,8 @@
+com/Amela/Service/ProductService.java
+ com.Amela.Service.ProductService
+com/Amela/Service/ProductServiceImpl.java
+ com.Amela.Service.ProductServiceImpl
+com/Amela/Model/Product.java
+ com.Amela.Model.Product
+com/Amela/Controller/ProductServlet.java
+ com.Amela.Controller.ProductServlet
