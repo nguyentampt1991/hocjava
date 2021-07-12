@@ -35,6 +35,7 @@ public class ProductServlet extends HttpServlet {
                  showDeleteForm(request,response);
                 break;
             case "view":
+                viewProduct(request, response);
 
                 break;
             default:
@@ -43,8 +44,29 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
+    private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = this.productServi.findById(id);
+        RequestDispatcher dispatcher;
+        if(product==null)
+        {
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        }else
+        {
+            request.setAttribute("product",product);
+            dispatcher =request.getRequestDispatcher("Product/view.jsp");
+        }
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("productId"));
+        int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productServi.findById(id);
         RequestDispatcher dispatcher;
         if (product==null)
@@ -70,7 +92,7 @@ public class ProductServlet extends HttpServlet {
         RequestDispatcher dispatcher;
         if(product== null)
         {
-            dispatcher =request.getRequestDispatcher("error 404.jsp");
+            dispatcher =request.getRequestDispatcher("error-404.jsp");
         }else
         {
             request.setAttribute("product",product);
@@ -137,12 +159,12 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("productId"));
+        int id = Integer.parseInt(request.getParameter("productID"));
         Product product = this.productServi.findById(id);
         RequestDispatcher dispatcher;
         if(product== null)
         {
-            dispatcher = request.getRequestDispatcher("error404.jsp");
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
 
         }else
         {
@@ -157,7 +179,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("productId"));
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("productName");
         String discription = request.getParameter("discription");
         float  price = Float.parseFloat(request.getParameter("price"));
@@ -165,7 +187,7 @@ public class ProductServlet extends HttpServlet {
         RequestDispatcher dispatcher;
         if(product== null)
         {
-            dispatcher= request.getRequestDispatcher("error 404.jsp");
+            dispatcher= request.getRequestDispatcher("error-404.jsp");
         }else
         {
             product.setProductName(name);

@@ -22,7 +22,7 @@
         <table>
             <tr>
                 <td>Product Name</td>
-                <td>${requestScope["product"].getProductId()}</td>
+                <td>${requestScope["product"].getProductName()}</td>
             </tr>
             <tr>
                 <td>Discription</td>
