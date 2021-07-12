@@ -25,8 +25,8 @@
                 <td>${requestScope["product"].getProductName()}</td>
             </tr>
             <tr>
-                <td>Discription</td>
-                <td>${requestScope["product"].getDiscription()}</td>
+                <td>Description</td>
+                <td>${requestScope["product"].getDescription()}</td>
 
             </tr>
             <tr>

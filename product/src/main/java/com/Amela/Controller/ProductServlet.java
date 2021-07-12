@@ -181,7 +181,7 @@ public class ProductServlet extends HttpServlet {
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("productName");
-        String discription = request.getParameter("discription");
+        String description = request.getParameter("description");
         float  price = Float.parseFloat(request.getParameter("price"));
         Product product = this.productServi.findById(id);
         RequestDispatcher dispatcher;
@@ -191,7 +191,7 @@ public class ProductServlet extends HttpServlet {
         }else
         {
             product.setProductName(name);
-            product.setDescription(discription);
+            product.setDescription(description);
             product.setPrice(price);
             this.productServi.update(id,product);
             request.setAttribute("product",product);
@@ -209,10 +209,10 @@ public class ProductServlet extends HttpServlet {
 
     private void createProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("productName");
-        String discription = request.getParameter("discription");
+        String description = request.getParameter("description");
         float price = Float.parseFloat(request.getParameter("price"));
         int id = (int) (Math.random())*10000;
-        Product product = new Product(id,name,discription,price);
+        Product product = new Product(id,name,description,price);
         this.productServi.save(product);
         RequestDispatcher dispatcher = request.getRequestDispatcher("Product/create.jsp");
         request.setAttribute("message","New product war create");
